@@ -179,8 +179,8 @@
   flex-direction: column;
   align-items: center;
   padding: 0.6dvh 0.9vw;
-  border: 1px solid;
-  border-radius: 1.2vw;
+  border: none;          /* místo 1px solid */
+  border-radius: 0;
   min-width: 0;
   max-height: 100%;
   gap: 0.3dvh
