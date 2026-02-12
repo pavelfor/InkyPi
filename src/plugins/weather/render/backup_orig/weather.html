@@ -11,6 +11,7 @@
   <!-- Current Date -->
   <div class="header">
     <div class="title">{{ title }}</div>
+    <div class="current-date">{{ current_date }}</div>
   </div>
 
   <div class="today-container">
@@ -177,9 +178,9 @@
           label: 'Hourly Temperature',
           data: temperatures,
           borderColor: 'rgba(241, 122, 36, 0.9)', // Line color
-          borderWidth: 4,
+          borderWidth: 2,
           pointRadius: 0, // Hide points
-          fill: false, // Enable filling the area under the line
+          fill: true, // Enable filling the area under the line
           tension: 0.5
         },
         {
@@ -292,12 +293,12 @@
     const gradientEnd = chart.scales['y'].getPixelForValue(minTemp);   // Min temperature
 
     // Create gradient based on y-axis values
-    // const tempGradient = ctx.createLinearGradient(0, gradientStart, 0, gradientEnd+10);
-    // tempGradient.addColorStop(0, 'rgba(252,204,5, 0.95)'); // Top of the gradient (max temperature)
-    // tempGradient.addColorStop(1, 'rgba(252,204,5, 0.01)'); // Bottom of the gradient (min temperature)
+    const tempGradient = ctx.createLinearGradient(0, gradientStart, 0, gradientEnd+10);
+    tempGradient.addColorStop(0, 'rgba(252,204,5, 0.95)'); // Top of the gradient (max temperature)
+    tempGradient.addColorStop(1, 'rgba(252,204,5, 0.01)'); // Bottom of the gradient (min temperature)
 
     // Update the chart to apply the gradient
-    // chart.data.datasets[0].backgroundColor = tempGradient;
+    chart.data.datasets[0].backgroundColor = tempGradient;
 
     // Create gradient based on y-axis values
     const precipitationGradient = ctx.createLinearGradient(0, gradientStart, 0, gradientEnd);

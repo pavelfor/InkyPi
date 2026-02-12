@@ -90,8 +90,7 @@
 }
 
 .current-temp {
-  font-size: 55cqmin;
-  font-weight: 800; 
+  font-size: 45cqmin;
   text-align: center;
   align-content: end;
   position: relative;
@@ -99,9 +98,9 @@
 }
 
 .temperature-unit {
-  font-size: 0.35em;
+  font-size: 0.4em;
   position: absolute;
-  top: 0.55em;
+  top: 0.6em;
 }
 
 
@@ -223,12 +222,11 @@
   min-height: 0;
   min-width: 0;
   height: 100%;
-  font-size: min(3.8dvh, 3.2vw);
+  font-size: min(3dvh, 2.5vw);
 }
 
-.forecast-temps .high,
-.forecast-temps .low {
-  font-weight: 800;
+.low .high {
+  font-weight: normal;
 }
 
 .current-weather {
