@@ -58,6 +58,7 @@
 
 /* Current Weather Row */
 .current-temperature {
+  padding-top: 1.6dvh;  /* NOVĚ – posune celý textový blok dolů */
   display: flex;
   flex-direction: row;
   /* Column on small screens */
@@ -70,6 +71,8 @@
 }
 
 .current-icon {
+  margin-left: 2.5vw;   /* NOVĚ – odlepí ikonu od levého okraje */
+  margin-right: 1vw;    /* NOVĚ – malá mezera směrem k teplotě */
   height: auto;
   max-width: 70%;
   width: auto;
@@ -168,14 +171,14 @@
   align-items: center;
   width: 100%;
   gap: 1.5dvw;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .forecast-day {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.6dvh 0.8vw;
+  padding: 0.6dvh 0.9vw;
   border: 1px solid;
   border-radius: 1.2vw;
   min-width: 0;
@@ -215,7 +218,8 @@
   min-height: 0;
   min-width: 0;
   height: 100%;
-  font-size: min(4dvh, 3.4vw);
+  font-size: min(4.4dvh, 3.8vw);
+  font-weight: 800;
   line-height: 1.0;
 }
 
