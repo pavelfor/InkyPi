@@ -74,9 +74,9 @@
   margin-left: 2.5vw;   /* NOVĚ – odlepí ikonu od levého okraje */
   margin-right: 1vw;    /* NOVĚ – malá mezera směrem k teplotě */
   height: auto;
-  max-width: 70%;
+  max-width: 74%;
   width: auto;
-  max-height: 80%;
+  max-height: 86%;
   flex: 1;
   min-width: 0;
   min-height: 0;
@@ -84,7 +84,7 @@
 }
 
 .current-temp {
-  font-size: 60cqmin;   
+  font-size: 66cqmin;   
   font-weight: 900;
   text-align: center;
   align-content: end;
