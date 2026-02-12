@@ -83,7 +83,7 @@
 }
 
 .current-temp {
-  font-size: 66cqmin;   
+  font-size: 72cqmin;   
   font-weight: 900;
   text-align: center;
   align-content: end;
@@ -96,7 +96,7 @@
 .temperature-unit {
   font-size: 0.35em;
   position: absolute;
-  top: 0.55em;
+  top: 0.60em;
 }
 
 
@@ -207,8 +207,8 @@
   min-width: 0;
   min-height: 0;
   object-fit: contain;
-  padding: 0 1vw;
-  max-width: 15dvw;
+  padding: 0 0.6vw;
+  max-width: 12dvw;
 }
 
 .forecast-temps {
