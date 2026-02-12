@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 1.5dvh;
+  padding-top: 1dvh;
   gap: 1dvh;
   width: 100%;
   height: 100%;
@@ -71,9 +71,9 @@
 
 .current-icon {
   height: auto;
-  max-width: 90%;
+  max-width: 70%;
   width: auto;
-  max-height: 100%;
+  max-height: 80%;
   flex: 1;
   min-width: 0;
   min-height: 0;
@@ -175,12 +175,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1dvh 1vw;
+  padding: 0.6dvh 0.8vw;
   border: 1px solid;
   border-radius: 1.2vw;
   min-width: 0;
   max-height: 100%;
-  gap: 0.5dvh
+  gap: 0.3dvh
 }
 
 .forecast-day-name {
@@ -215,7 +215,8 @@
   min-height: 0;
   min-width: 0;
   height: 100%;
-  font-size: min(3.8dvh, 3.2vw);
+  font-size: min(4dvh, 3.4vw);
+  line-height: 1.0;
 }
 
 .forecast-temps .high,
@@ -273,10 +274,7 @@
 }
 
 .feels-like {
-  font-size: 10cqmin;
-  text-align: center;
-  position: relative;
-  line-height: 140%;
+  display: none !important;
 }
 
 @media (max-aspect-ratio: 1) {
