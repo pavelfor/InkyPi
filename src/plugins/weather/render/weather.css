@@ -17,7 +17,7 @@
 }
 
 .header {
-  height: 15dvh;
+  height: 8dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,13 +26,7 @@
 }
 
 .last-refresh {
-  position: absolute;
-  top: 0.5dvh;
-  right: 0.5dvw;
-  font-size: min(2dvh, 2vw);
-  text-align: right;
-  font-weight: bold;
-  padding: 0.3dvh 0.5dvw;
+  display: none !important;
 }
 
 .weather-dashboard {
@@ -90,12 +84,13 @@
 }
 
 .current-temp {
-  font-size: 55cqmin;
-  font-weight: 800; 
+  font-size: 42cqmin;   /* dřív jsi měl 55cqmin; 42 bývá “dominantní ale ne přerostlá” */
+  font-weight: 800;
   text-align: center;
   align-content: end;
   position: relative;
   height: 50%;
+  line-height: 0.95;
 }
 
 .temperature-unit {
