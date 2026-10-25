@@ -362,6 +362,7 @@
 
 .sensor-temp {
   font-size: min(90cqh, 34cqw);
+  font-weight: 900;
   line-height: 1;
   position: relative;
   white-space: nowrap;
@@ -378,6 +379,7 @@
 .sensor-max,
 .sensor-min {
   font-size: 30cqh;
+  font-weight: 800;
   line-height: 1.15;
   white-space: nowrap;
 }
