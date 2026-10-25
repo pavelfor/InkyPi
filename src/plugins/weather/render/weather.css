@@ -338,8 +338,8 @@
 }
 
 .sensor-icon {
-  flex: 0 0 24%;
-  max-width: 24%;
+  flex: 0 0 20%;
+  max-width: 20%;
 }
 
 .sensor-block,
@@ -363,7 +363,7 @@
 }
 
 .sensor-temp {
-  font-size: 62cqh;
+  font-size: min(90cqh, 34cqw);
   line-height: 1;
   position: relative;
   white-space: nowrap;
@@ -375,11 +375,6 @@
 
 .sensor-temp .temperature-unit {
   top: 0.15em;
-}
-
-.sensor-time {
-  font-size: 10cqh;
-  opacity: 0.7;
 }
 
 .sensor-max,

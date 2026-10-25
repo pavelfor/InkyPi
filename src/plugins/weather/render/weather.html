@@ -23,10 +23,8 @@
         <div class="sensor-block">
           {% if sensor.stale %}
           <div class="sensor-temp">--<span class="temperature-unit">{{temperature_unit}}</span></div>
-          <div class="sensor-time">{% if sensor.time %}{{ sensor.time }}{% else %}bez dat{% endif %}</div>
           {% else %}
           <div class="sensor-temp">{{ sensor.whole }}<span class="sensor-frac">,{{ sensor.frac }}</span><span class="temperature-unit">{{temperature_unit}}</span></div>
-          <div class="sensor-time">{{ sensor.time }}</div>
           {% endif %}
         </div>
         <div class="sensor-minmax">
