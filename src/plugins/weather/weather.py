@@ -136,6 +136,9 @@ class Weather(BasePlugin):
             last_refresh_time = now.strftime("%Y-%m-%d %I:%M %p")
         template_params["last_refresh_time"] = last_refresh_time
 
+        # Outdoor temperature measured by a local sensor (Home Assistant)
+        template_params["sensor"] = self.get_ha_sensor(device_config, tz, time_format)
+
         image = self.render_image(dimensions, "weather.html", "weather.css", template_params)
 
         if not image:
@@ -753,6 +756,38 @@ class Weather(BasePlugin):
         location_str = f"{location_data.get('name')}, {location_data.get('state', location_data.get('country'))}"
 
         return location_str
+
+    def get_ha_sensor(self, device_config, tz, time_format):
+        """Reads outdoor temperature from Home Assistant.
+
+        Configured via .env: HA_URL, HA_TOKEN, HA_TEMP_ENTITY (optional HA_MAX_AGE_MIN).
+        Returns None when not configured (plugin renders as before),
+        or a dict with value/time/stale. Never raises.
+        """
+        url = device_config.load_env_key("HA_URL")
+        token = device_config.load_env_key("HA_TOKEN")
+        entity = device_config.load_env_key("HA_TEMP_ENTITY")
+        if not (url and token and entity):
+            return None
+        max_age = float(device_config.load_env_key("HA_MAX_AGE_MIN") or 30)
+        try:
+            r = requests.get(f"{url.rstrip('/')}/api/states/{entity}",
+                             headers={"Authorization": f"Bearer {token}"}, timeout=5)
+            r.raise_for_status()
+            state = r.json()
+            value = float(state["state"])
+            updated = datetime.fromisoformat(state["last_updated"]).astimezone(tz)
+            age_min = (datetime.now(tz) - updated).total_seconds() / 60
+            whole, frac = f"{value:.1f}".split(".")
+            return {
+                "whole": whole,
+                "frac": frac,
+                "time": updated.strftime("%H:%M" if time_format == "24h" else "%I:%M %p"),
+                "stale": age_min > max_age,
+            }
+        except Exception as e:
+            logger.warning(f"Home Assistant sensor read failed: {e}")
+            return {"whole": "--", "frac": None, "time": None, "stale": True}
 
     def get_open_meteo_data(self, lat, long, units, forecast_days):
         unit_params = OPEN_METEO_UNIT_PARAMS[units]

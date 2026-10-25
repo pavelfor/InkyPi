@@ -330,3 +330,59 @@
     font-family: "Dogica";
   }
 }
+
+/* Outdoor sensor layout: icon | measured temp | max/min */
+.sensor-layout {
+  width: 100%;
+  gap: 2vw;
+}
+
+.sensor-icon {
+  flex: 0 0 24%;
+  max-width: 24%;
+}
+
+.sensor-block,
+.sensor-minmax {
+  container-type: size;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.sensor-block {
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.sensor-minmax {
+  flex: 0 0 22%;
+}
+
+.sensor-temp {
+  font-size: 62cqh;
+  line-height: 1;
+  position: relative;
+  white-space: nowrap;
+}
+
+.sensor-frac {
+  font-size: 0.45em;
+}
+
+.sensor-temp .temperature-unit {
+  top: 0.15em;
+}
+
+.sensor-time {
+  font-size: 10cqh;
+  opacity: 0.7;
+}
+
+.sensor-max,
+.sensor-min {
+  font-size: 20cqh;
+  line-height: 1.3;
+}
